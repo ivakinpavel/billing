@@ -66,10 +66,12 @@ class WalletMoneyTransferView(APIView):
         return Response(target_wallet_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-def make_report_csv(user_id, wallet_logs):
-    user = get_object_or_404(User, id=user_id)
-
+def make_report_csv(username, wallet_logs):
+    user = get_object_or_404(User, name=username)
+    print(user)
+    print(user.wallet)
     for c, log in enumerate(wallet_logs):
+        print(log)
         output = StringIO()
         writer = csv.writer(output)
 
@@ -111,7 +113,7 @@ class ReportView(FilterView):
             else:
                 object_list = fs.queryset.none()
             response = StreamingHttpResponse(
-                make_report_csv(self.kwargs.get('user_id'), object_list),
+                make_report_csv(self.request.GET.get('username'), object_list),
                 content_type='text/csv')
             response['Content-Disposition'] = 'attachment; filename=report.csv'
             return response
