@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+celery -A westshina.taskapp beat -l INFO

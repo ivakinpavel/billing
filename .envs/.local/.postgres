@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=billing
+POSTGRES_USER=gdRrzsfKEapnErHLxSPcSwDCxhzQhCiS
+POSTGRES_PASSWORD=fj5TTrCKBPvF2HcByYaf77RtjliCWQrAPeeFLOQ5uv3nSZrS6lJ6m2eXKor3OFob
